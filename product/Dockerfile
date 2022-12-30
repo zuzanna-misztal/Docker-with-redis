@@ -1,3 +1,5 @@
-FROM python:3-onbuild
-COPY . /usr/src/app
-CMD ["python", "api.py"]
+FROM python:3
+COPY . /code
+WORKDIR /code
+RUN pip install -r requirements.txt --no-cache-dir
+CMD python api.py
